@@ -1,20 +1,34 @@
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews
-    </IfModule>
+AddHandler cgi-script .php
+DirectoryIndex index.php index.html
 
-    RewriteEngine On
+ErrorDocument 404 /404.html
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-    # Handle Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-</IfModule>
+#RewriteEngine On 
+
+# Convert ? -> %3F in queries 
+#RewriteCond %{ENV:REDIRECT_STATUS} !200 
+#RewriteCond %{QUERY_STRING} !^$ 
+#RewriteRule ^(.*)$ /$1\%3F%{QUERY_STRING} [L,NE]
+
+
+#RewriteEngine On
+#<IfModule mod_speling.c>
+#CheckSpelling on
+#</IfModule>
+
+# Allow filenames containing '?' to be served by escaping the '?' in the HTTP
+# request so it's not interpreted as a query string.
+#
+# Apache 2.2: set query string to empty by ending rewritten path with '?'.
+# Apache 2.4: use the qsdiscard flag instead
+#
+#RewriteCond %{QUERY_STRING} !=""
+#RewriteRule ^/(.*) /$1\%3F%{QUERY_STRING}? [noescape,last,redirect]
+
+
+# below gives 500 internal server error
+#CheckSpelling On
+#RewriteRule ^(.*)/$ $1/index.html\%3F%{QUERY_STRING}? [L,qsdiscard]
+

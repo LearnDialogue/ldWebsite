@@ -32,7 +32,7 @@ code.
 To work on the sample code, you'll need to clone your project's repository to your
 local computer. If you haven't, do that first. You can find instructions in the AWS CodeStar user guide at https://docs.aws.amazon.com/codestar/latest/userguide/getting-started.html#clone-repo.
 
-1. Install PHP. See https://php.net/manual/en/install.php for details.
+1. Install PHP. See http://php.net/manual/en/install.php for details.
 
 2. Install composer. See https://getcomposer.org/doc/00-intro.md for
    details.
@@ -65,7 +65,7 @@ seen how that works, start developing your own code, and have fun!
 Learn more about AWS CodeStar by reading the [user guide][User Guide].  Ask
 questions or make suggestions on our [forum][Forum].
 
-[User Guide]: https://docs.aws.amazon.com/codestar/latest/userguide/welcome.html
+[User Guide]: http://docs.aws.amazon.com/codestar/latest/userguide/welcome.html
 
 [Forum]: https://forums.aws.amazon.com/forum.jspa?forumID=248
 
